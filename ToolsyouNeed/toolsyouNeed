@@ -1,14 +1,33 @@
 #!/bin/bash
 
+ID=$(id -u)
+
+echo "
+╺┳╸┏━┓┏━┓╻  ┏━┓╻ ╻┏━┓╻ ╻┏┓╻┏━╸┏━╸╺┳┓
+ ┃ ┃ ┃┃ ┃┃  ┗━┓┗┳┛┃ ┃┃ ┃┃┗┫┣╸ ┣╸  ┃┃
+ ╹ ┗━┛┗━┛┗━╸┗━┛ ╹ ┗━┛┗━┛╹ ╹┗━╸┗━╸╺┻┛
+"
+if ! [[ -e log ]]
+then
+	touch log
+	echo "Initialised log" > log
+fi
+
+if [[ $ID -ne 0 ]]
+then
+	echo -e "message: You need \"root\" to launch this script. \n"
+	exit 0
+fi
+
 echo "All tools you need : "
 echo "
    -> 1) glow : Read markdown beautiful in terminal
    -> 2) tldr : Give example for command and explain useful
 "
-read -p "Enter your choice : " choice
+read -p "Enter your choice : " CHOICE
 echo -e "----------------------------"
 
-case ${choice,,} in
+case ${CHOICE,,} in
 	1 | glow)
 		apt install glow
 		;;
