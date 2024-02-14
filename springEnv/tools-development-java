@@ -1,0 +1,20 @@
+#!/bin/bash
+
+# Author : Hackwall
+
+echo "Tools development java for Framework Spring"
+
+# Prompt the user for the Java version
+read -p "Enter Java version you need to install if it is available: " Version
+
+echo "Install Java Runtime Environment (JRE) ..."
+sudo apt-get install openjdk-"$Version"-jre
+
+echo "Install Java Development Kit (JDK) ..."
+sudo apt-get install openjdk-"$Version"-jdk
+
+sudo apt update
+
+echo "Install Maven ..."
+sudo apt install maven
+
