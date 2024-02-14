@@ -1,0 +1,40 @@
+#!/bin/bash 
+
+# Git install
+
+echo "
+  ____ _ _     _    _ _
+ / ___(_) |_  | | _(_) |_
+| |  _| | __| | |/ / | __|
+| |_| | | |_  |   <| | |_
+ \____|_|\__| |_|\_\_|\__|
+"
+
+idNumber=$(id -u)
+
+if [[ $idNumber -ne 0  ]]
+then
+    echo "-> Please excute as root or with sudo"
+    exit 1
+fi
+
+if ! command git -v &> /dev/null 
+then
+    echo "-> You need to install git"
+    read -p "Are you to install git (Y)es/(N)o:"response
+    if [[ $response == "Y" ]]
+    then
+	apt install git
+    else
+	exit 1
+    fi
+fi
+
+echo -e "-> Configuration global git \n"
+read -p "+ Enter your username : " userName
+read -p "+ Enter your email : " email
+
+git config --global user.name $userName
+git config --global user.email $email
+
+echo "Success install git and configure ;)"
