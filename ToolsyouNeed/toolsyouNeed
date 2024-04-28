@@ -1,0 +1,9 @@
+#!/bin/bash
+
+echo "All tools you need"
+
+echo "Read markdown beautiful in terminal"
+apt install glow
+
+echo "Give example command and explain"
+apt install tldr

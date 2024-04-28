@@ -1,0 +1,15 @@
+#!/bin/bash
+
+echo "
+┏┳┓┏━┓┏┓╻┏━┓┏━╸┏━╸┏┳┓┏━╸┏┓╻╺┳╸   ┏┓╻┏━╸╺┳╸╻ ╻┏━┓┏━┓╻┏ 
+┃┃┃┣━┫┃┗┫┣━┫┃╺┓┣╸ ┃┃┃┣╸ ┃┗┫ ┃    ┃┗┫┣╸  ┃ ┃╻┃┃ ┃┣┳┛┣┻┓
+╹ ╹╹ ╹╹ ╹╹ ╹┗━┛┗━╸╹ ╹┗━╸╹ ╹ ╹    ╹ ╹┗━╸ ╹ ┗┻┛┗━┛╹┗╸╹ ╹
+"
+
+echo "Hotspot with nmcli"
+
+nmcli device wifi
+
+read -p "What's the hotspot you need to connect ? " nameSSID
+
+nmcli device wifi connect $nameSSID 
