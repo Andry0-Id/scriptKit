@@ -1,9 +1,20 @@
 #!/bin/bash
 
-echo "All tools you need"
+echo "All tools you need : "
+echo "
+   -> 1) glow : Read markdown beautiful in terminal
+   -> 2) tldr : Give example for command and explain useful
+"
+read -p "Enter your choice : " choice
+echo -e "----------------------------"
 
-echo "Read markdown beautiful in terminal"
-apt install glow
-
-echo "Give example command and explain"
-apt install tldr
+case ${choice,,} in
+	1 | glow)
+		apt install glow
+		;;
+	2 | tldr)
+		apt install tldr
+		;;
+	*)
+		echo "Choice number or name of application"
+esac
