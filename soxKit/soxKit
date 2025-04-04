@@ -1,0 +1,21 @@
+#!/bin/bash
+
+echo "
+ ____            _  ___ _
+/ ___|  _____  _| |/ (_) |_
+\___ \ / _ \ \/ / ' /| | __|
+ ___) | (_) >  <| . \| | |_
+|____/ \___/_/\_\_|\_\_|\__|
+"
+
+idNumber=`id -u`
+
+if [[ $idNumber -ne 0 ]];then
+   echo "You need to launch this is program with root."
+   echo "Try with sudo ./soxKit"
+   exit 1
+fi
+
+echo "Initialized installation ..."
+
+sudo apt install sox libsox-fmt-mp3
